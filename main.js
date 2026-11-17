@@ -19,6 +19,7 @@ const SOFA_COLORS = [
   { name: '燕麥米', hex: '#d6c8b0' },
   { name: '鼠尾草綠', hex: '#8fa392' },
   { name: '霧藍', hex: '#7f95a8' },
+  { name: '芥末黃', hex: '#c9a54a' },
 ];
 
 const FLOORS = {
