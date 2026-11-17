@@ -1,0 +1,114 @@
+:root {
+  --bg: #eef0ec;
+  --panel: rgba(255, 255, 255, 0.82);
+  --text: #33352f;
+  --muted: #7a7d74;
+  --line: #dcdfd6;
+  --accent: #5f7a6a;      /* 鼠尾草綠 */
+  --accent-soft: #e3ebe4;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+  color: var(--text);
+}
+canvas { display: block; touch-action: none; }
+body.hovering canvas { cursor: pointer; }
+
+/* 共用面板外觀 */
+.info, .card, .panel {
+  position: fixed;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+}
+
+/* 左上標題 */
+.info { top: 16px; left: 16px; padding: 12px 16px; pointer-events: none; }
+.info h1 { margin: 0 0 4px; font-size: 18px; font-weight: 600; }
+.info p  { margin: 0; font-size: 13px; color: var(--muted); }
+
+/* 右側資訊卡 */
+.card {
+  top: 16px; right: 16px;
+  width: 260px;
+  padding: 18px 20px;
+}
+.card[hidden] { display: none; }
+.card h2 { margin: 0; font-size: 20px; }
+.card .en { margin: 2px 0 12px; font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+.card dl { margin: 0; }
+.card dt { font-size: 12px; color: var(--muted); margin-top: 10px; }
+.card dd { margin: 2px 0 0; font-size: 14px; line-height: 1.5; }
+.close {
+  position: absolute; top: 8px; right: 10px;
+  border: 0; background: none; font-size: 22px; color: var(--muted); cursor: pointer;
+}
+
+.swatch-group { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+.swatch-group .label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.swatches { display: flex; gap: 10px; }
+.swatch {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line);
+  cursor: pointer; padding: 0;
+}
+.swatch.on { box-shadow: 0 0 0 2px var(--accent); }
+.swatch-name { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+/* 下方控制面板 */
+.panel {
+  left: 50%; bottom: 16px; transform: translateX(-50%);
+  display: flex; gap: 18px; align-items: center;
+  padding: 10px 14px;
+}
+.group { display: flex; align-items: center; gap: 8px; }
+.group .label { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.seg { display: flex; background: #f4f5f1; border-radius: 8px; padding: 3px; gap: 2px; }
+.seg button {
+  border: 0; background: none; padding: 6px 10px; border-radius: 6px;
+  font: inherit; font-size: 13px; color: var(--text); cursor: pointer; white-space: nowrap;
+}
+.seg button:hover { background: #e9ebe5; }
+.seg button.on { background: var(--accent); color: #fff; }
+
+#loading {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  font-size: 15px; color: var(--muted); pointer-events: none;
+}
+
+/* 夜間模式：面板也跟著變暗 */
+body.night { --panel: rgba(40, 44, 52, 0.82); --text: #eceae4; --muted: #a8aba3; --line: #4a4f58; }
+body.night .seg { background: #2f343c; }
+body.night .seg button:hover { background: #3a4049; }
+
+/* 手機版 */
+@media (max-width: 720px) {
+  .info { top: 10px; left: 10px; right: 10px; padding: 10px 12px; }
+  .info h1 { font-size: 16px; }
+  .panel {
+    left: 10px; right: 10px; bottom: 10px; transform: none;
+    flex-direction: column; align-items: stretch; gap: 8px; padding: 10px;
+  }
+  .group { justify-content: space-between; }
+  .seg { flex: 1; }
+  .seg button { flex: 1; padding: 7px 4px; }
+  .card {
+    right: 10px; left: 10px; width: auto;
+    top: 10px; padding: 10px 14px; max-height: 40vh; overflow: auto;
+  }
+  body.card-open .info { display: none; }   /* 資訊卡開啟時暫時取代標題 */
+  .card h2 { font-size: 16px; display: inline; }
+  .card .en { display: inline; margin-left: 6px; }
+  .card dl { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; margin-top: 6px; }
+  .card dt, .card dd { margin-top: 3px; font-size: 13px; }
+  .swatch-group { margin-top: 8px; padding-top: 8px; display: flex; align-items: center; gap: 10px; }
+  .swatch-group .label { margin: 0; }
+  .swatch { width: 28px; height: 28px; }
+  .swatch-name { display: none; }
+}

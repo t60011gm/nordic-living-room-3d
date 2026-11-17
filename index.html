@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>北歐風客廳｜3D 互動展示</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="info">
+    <h1>北歐風客廳｜3D 互動展示</h1>
+    <p>拖曳旋轉・滾輪縮放・點選家具看資訊</p>
+  </header>
+
+  <!-- 家具資訊卡 -->
+  <aside id="card" class="card" hidden>
+    <button id="cardClose" class="close" aria-label="關閉">×</button>
+    <h2 id="cardTitle"></h2>
+    <p id="cardEn" class="en"></p>
+    <dl>
+      <dt>尺寸（寬 × 深 × 高）</dt>
+      <dd id="cardSize"></dd>
+      <dt>材質</dt>
+      <dd id="cardMat"></dd>
+    </dl>
+    <div id="sofaColors" class="swatch-group" hidden>
+      <span class="label">布料顏色</span>
+      <div class="swatches" id="swatches"></div>
+    </div>
+  </aside>
+
+  <!-- 控制面板 -->
+  <nav class="panel">
+    <div class="group">
+      <span class="label">視角</span>
+      <div class="seg" id="views">
+        <button data-view="overview" class="on">全景</button>
+        <button data-view="top">俯視平面</button>
+        <button data-view="sofa">沙發視角</button>
+      </div>
+    </div>
+    <div class="group">
+      <span class="label">地板</span>
+      <div class="seg" id="floors">
+        <button data-floor="oak" class="on">淺橡木</button>
+        <button data-floor="walnut">胡桃木</button>
+        <button data-floor="stone">灰色石材</button>
+      </div>
+    </div>
+    <div class="group">
+      <span class="label">光線</span>
+      <div class="seg" id="daynight">
+        <button data-mode="day" class="on">白天</button>
+        <button data-mode="night">夜晚</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="loading">模型載入中…</div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
