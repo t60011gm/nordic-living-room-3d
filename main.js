@@ -120,7 +120,6 @@ new GLTFLoader().load('models/living-room.glb', (gltf) => {
     const name = obj.material.name;
     obj.castShadow = name !== 'Glass_Clear';
     obj.receiveShadow = true;
-    if (obj.name.startsWith('Wall_')) obj.material.color.set('#3f5a4c');   // 三面牆改深綠色（試驗中）
     if (name === 'Fabric_LightGrey') sofaFabric = obj.material;
     if (name === 'Wood_Floor') { floorMat = obj.material; addPlanarUV(obj.geometry); }
     if (name === 'Linen_Lampshade') { lampShadeMat = obj.material; obj.castShadow = false; }
