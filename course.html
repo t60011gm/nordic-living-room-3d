@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>教學影片與講義｜北歐風客廳 3D 互動展示</title>
+  <style>
+    :root {
+      --bg: #eef0ec; --card: #ffffff; --text: #33352f; --muted: #6f7269;
+      --line: #dcdfd6; --accent: #5f7a6a; --accent-soft: #e3ebe4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif; line-height: 1.7;
+    }
+    main { max-width: 960px; margin: 0 auto; padding: 32px 16px 56px; }
+    a { color: var(--accent); }
+    .back { display: inline-block; margin-bottom: 16px; font-size: 14px; text-decoration: none; }
+    h1 { margin: 0 0 4px; font-size: 26px; }
+    .lead { margin: 0 0 24px; color: var(--muted); }
+    section { background: var(--card); border-radius: 14px; padding: 20px; margin-bottom: 20px;
+              box-shadow: 0 4px 18px rgba(0,0,0,.05); }
+    h2 { margin: 0 0 12px; font-size: 18px; }
+    video { width: 100%; border-radius: 10px; background: #1d222b; display: block; }
+    .note { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+    .docs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .doc { border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .doc h3 { margin: 0; font-size: 16px; }
+    .doc p { margin: 0; font-size: 14px; color: var(--muted); flex: 1; }
+    .btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+    .btn { display: inline-block; padding: 7px 14px; border-radius: 8px; font-size: 14px; text-decoration: none;
+           background: var(--accent); color: #fff; }
+    .btn.ghost { background: var(--accent-soft); color: var(--accent); }
+    ol { margin: 0; padding-left: 1.4em; }
+    footer { text-align: center; font-size: 13px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="./">← 回到 3D 互動展示</a>
+    <h1>Claude Code 用 Blender MCP 製作 3D 互動網站</h1>
+    <p class="lead">把室內設計方案做成瀏覽器裡可以旋轉、點選家具的互動展示：教學影片、講義與簡報</p>
+
+    <section>
+      <h2>教學影片（5 分 47 秒）</h2>
+      <video controls preload="metadata" playsinline>
+        <source src="course/tutorial.mp4" type="video/mp4">
+        <track kind="subtitles" src="course/tutorial.vtt" srclang="zh-Hant" label="繁體中文" default>
+        你的瀏覽器不支援影片播放，請<a href="course/tutorial.mp4">下載影片</a>。
+      </video>
+      <p class="note">已附繁體中文字幕，可在播放器右下角開關。</p>
+    </section>
+
+    <section>
+      <h2>講義與簡報</h2>
+      <div class="docs">
+        <div class="doc">
+          <h3>講義（PDF，15 頁）</h3>
+          <p>四個提示詞的完整內容、寫法說明、成果截圖、限制、課堂練習與常見問題。</p>
+          <div class="btns">
+            <a class="btn" href="course/handout.pdf" target="_blank" rel="noopener">開啟講義</a>
+            <a class="btn ghost" href="course/handout.pdf" download>下載</a>
+          </div>
+        </div>
+        <div class="doc">
+          <h3>簡報（PDF，17 頁）</h3>
+          <p>課堂投影用：流程、提示詞重點、Claude 自我測試、成果與下一步。</p>
+          <div class="btns">
+            <a class="btn" href="course/slides.pdf" target="_blank" rel="noopener">開啟簡報</a>
+            <a class="btn ghost" href="course/slides.pdf" download>下載</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>課程流程</h2>
+      <ol>
+        <li>提示詞 1：在 Blender 依真實尺寸建立客廳模型</li>
+        <li>提示詞 2：匯出 glTF（.glb）並用 Three.js 建立網站</li>
+        <li>提示詞 3：加入點選家具、沙發換色、地板材質、日夜與視角切換</li>
+        <li>提示詞 4：追加修正玻璃與地板紋理</li>
+      </ol>
+      <p class="note"><a href="./">開啟 3D 互動展示</a>，對照講義自己操作看看。</p>
+    </section>
+
+    <footer>室內設計系碩士班 · Claude Code × Blender MCP 課程示範</footer>
+  </main>
+</body>
+</html>

@@ -32,6 +32,12 @@ body.hovering canvas { cursor: pointer; }
 .info { top: 16px; left: 16px; padding: 12px 16px; pointer-events: none; }
 .info h1 { margin: 0 0 4px; font-size: 18px; font-weight: 600; }
 .info p  { margin: 0; font-size: 13px; color: var(--muted); }
+.course-link {
+  display: inline-block; margin-top: 8px; padding: 4px 10px; border-radius: 6px;
+  font-size: 13px; text-decoration: none; pointer-events: auto;
+  background: var(--accent); color: #fff;
+}
+.course-link:hover { filter: brightness(1.1); }
 
 /* 右側資訊卡 */
 .card {
